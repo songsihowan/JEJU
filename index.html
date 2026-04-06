@@ -1,0 +1,1171 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SHINWA WORLD — 2025 고객 인사이트</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Noto+Sans+KR:wght@300;400;500;700;900&family=Barlow+Condensed:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --black: #0a0a0a;
+  --white: #f5f5f5;
+  --red: #e31c1c;
+  --red-dim: rgba(227,28,28,0.12);
+  --gray: #1a1a1a;
+  --gray2: #2a2a2a;
+  --gray-text: #6a6a6a;
+  --line: rgba(255,255,255,0.08);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--black);
+  color: var(--white);
+  font-family: 'Noto Sans KR', sans-serif;
+  cursor: none;
+  overflow-x: hidden;
+}
+
+/* ── CUSTOM CURSOR ── */
+#cursor {
+  position: fixed;
+  width: 12px; height: 12px;
+  background: var(--red);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%,-50%);
+  transition: width 0.3s, height 0.3s;
+}
+#cursor-ring {
+  position: fixed;
+  width: 40px; height: 40px;
+  border: 1px solid rgba(227,28,28,0.5);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%,-50%);
+  transition: width 0.3s, height 0.3s;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.4rem 4vw;
+  border-bottom: 1px solid var(--line);
+  background: rgba(10,10,10,0.9);
+  backdrop-filter: blur(16px);
+}
+
+.nav-logo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.5rem;
+  letter-spacing: 0.12em;
+  color: var(--white);
+}
+
+.nav-logo span { color: var(--red); }
+
+.nav-links {
+  display: flex;
+  gap: 2.5rem;
+  list-style: none;
+}
+
+.nav-links a {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gray-text);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover { color: var(--white); }
+
+.nav-cta {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--black);
+  background: var(--white);
+  padding: 0.55rem 1.4rem;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+}
+
+.nav-cta:hover { background: var(--red); color: var(--white); }
+
+/* ── HERO ── */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 0 4vw 6vh;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid var(--line);
+}
+
+.hero-bg-text {
+  position: absolute;
+  top: 50%;
+  left: -2vw;
+  transform: translateY(-50%);
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 28vw;
+  color: rgba(255,255,255,0.025);
+  white-space: nowrap;
+  line-height: 1;
+  user-select: none;
+  animation: driftX 18s linear infinite alternate;
+}
+
+@keyframes driftX {
+  from { transform: translateY(-50%) translateX(0); }
+  to   { transform: translateY(-50%) translateX(-4vw); }
+}
+
+.hero-tag {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 1.5rem;
+  opacity: 0;
+  animation: fadeUp 0.7s 0.3s ease forwards;
+}
+
+.hero-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(5rem, 15vw, 15rem);
+  line-height: 0.88;
+  letter-spacing: -0.01em;
+  color: var(--white);
+  margin-bottom: 2rem;
+  opacity: 0;
+  animation: fadeUp 0.8s 0.4s ease forwards;
+}
+
+.hero-title .line2 {
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(255,255,255,0.35);
+}
+
+.hero-title .line3 { color: var(--red); }
+
+.hero-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 2rem;
+  opacity: 0;
+  animation: fadeUp 0.8s 0.6s ease forwards;
+}
+
+.hero-desc {
+  font-size: 0.88rem;
+  color: var(--gray-text);
+  font-weight: 300;
+  line-height: 1.8;
+  max-width: 420px;
+}
+
+.hero-stats {
+  display: flex;
+  gap: 3rem;
+  flex-shrink: 0;
+}
+
+.hero-stat-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 3rem;
+  color: var(--white);
+  line-height: 1;
+}
+
+.hero-stat-num span { color: var(--red); }
+
+.hero-stat-label {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gray-text);
+  margin-top: 0.3rem;
+}
+
+.scroll-indicator {
+  position: absolute;
+  right: 4vw;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  opacity: 0;
+  animation: fadeUp 1s 0.9s ease forwards;
+}
+
+.scroll-line {
+  width: 1px;
+  height: 80px;
+  background: linear-gradient(to bottom, var(--red), transparent);
+  animation: scrollPulse 2s ease-in-out infinite;
+}
+
+@keyframes scrollPulse {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}
+
+.scroll-label {
+  font-size: 0.55rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gray-text);
+  writing-mode: vertical-rl;
+}
+
+/* ── SECTIONS ── */
+section { border-bottom: 1px solid var(--line); }
+
+.section-header {
+  padding: 5rem 4vw 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  border-bottom: 1px solid var(--line);
+}
+
+.section-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 5rem;
+  color: rgba(255,255,255,0.06);
+  line-height: 1;
+}
+
+.section-tag {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 0.6rem;
+}
+
+.section-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(2.5rem, 5vw, 5rem);
+  letter-spacing: 0.02em;
+  line-height: 0.92;
+  color: var(--white);
+}
+
+/* ── KPI ── */
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.kpi-card {
+  padding: 3rem 2.5rem;
+  border-right: 1px solid var(--line);
+  position: relative;
+  overflow: hidden;
+  transition: background 0.3s;
+}
+
+.kpi-card:nth-child(3n) { border-right: none; }
+.kpi-card:nth-child(n+4) { border-top: 1px solid var(--line); }
+
+.kpi-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 0; height: 2px;
+  background: var(--red);
+  transition: width 0.5s cubic-bezier(0.16,1,0.3,1);
+}
+
+.kpi-card:hover { background: rgba(255,255,255,0.02); }
+.kpi-card:hover::after { width: 100%; }
+
+.kpi-emoji {
+  font-size: 1.4rem;
+  margin-bottom: 1.5rem;
+  display: block;
+  filter: grayscale(1);
+  transition: filter 0.3s;
+}
+
+.kpi-card:hover .kpi-emoji { filter: grayscale(0); }
+
+.kpi-cat {
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gray-text);
+  margin-bottom: 0.5rem;
+}
+
+.kpi-name {
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 1rem;
+  line-height: 1.4;
+}
+
+.kpi-big {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(3.5rem, 5vw, 5.5rem);
+  line-height: 1;
+  color: var(--white);
+  margin-bottom: 0.5rem;
+}
+
+.kpi-big.red { color: var(--red); }
+
+.kpi-sub {
+  font-size: 0.75rem;
+  color: var(--gray-text);
+  line-height: 1.6;
+  font-weight: 300;
+}
+
+/* ── DASHBOARD ── */
+.dash-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.dash-panel {
+  padding: 3rem 2.5rem;
+  border-right: 1px solid var(--line);
+}
+
+.dash-panel:nth-child(even) { border-right: none; }
+.dash-panel:nth-child(n+3) { border-top: 1px solid var(--line); }
+
+.dash-title {
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 2rem;
+}
+
+.bar-row { margin-bottom: 1.6rem; }
+
+.bar-meta {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.55rem;
+}
+
+.bar-label { font-size: 0.78rem; color: rgba(255,255,255,0.55); font-weight: 400; }
+
+.bar-pct {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--white);
+}
+
+.bar-track {
+  height: 3px;
+  background: rgba(255,255,255,0.06);
+}
+
+.bar-fill {
+  height: 100%;
+  background: var(--white);
+  width: 0;
+  transition: width 1.4s cubic-bezier(0.16,1,0.3,1);
+}
+
+.bar-fill.red { background: var(--red); }
+.bar-fill.dim { background: rgba(255,255,255,0.25); }
+
+.dash-table-wrap {
+  grid-column: 1 / -1;
+  border-top: 1px solid var(--line);
+  overflow-x: auto;
+}
+
+.dash-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.dash-table th {
+  padding: 1.2rem 1.5rem;
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gray-text);
+  text-align: left;
+  border-bottom: 1px solid var(--line);
+  white-space: nowrap;
+}
+
+.dash-table td {
+  padding: 1.4rem 1.5rem;
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.65);
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+  line-height: 1.5;
+}
+
+.dash-table tr:last-child td { border-bottom: none; }
+
+.dash-table td:first-child {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--white);
+  white-space: nowrap;
+}
+
+.tag {
+  display: inline-block;
+  padding: 0.18rem 0.55rem;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin: 0.15rem 0.1rem;
+}
+
+.tag.w { background: var(--white); color: var(--black); }
+.tag.r { background: var(--red); color: var(--white); }
+.tag.g { background: var(--gray2); color: var(--white); border: 1px solid rgba(255,255,255,0.12); }
+
+/* ── INTERPRETATION ── */
+.interp-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.interp-card {
+  padding: 4rem 2.5rem;
+  border-right: 1px solid var(--line);
+  position: relative;
+}
+
+.interp-card:last-child { border-right: none; }
+
+.interp-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 7rem;
+  color: rgba(255,255,255,0.04);
+  line-height: 1;
+  position: absolute;
+  top: 2rem; right: 1.5rem;
+}
+
+.interp-q {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--white);
+  margin-bottom: 1.2rem;
+  line-height: 1.2;
+}
+
+.interp-a {
+  font-size: 0.82rem;
+  color: var(--gray-text);
+  line-height: 1.8;
+  font-weight: 300;
+}
+
+.interp-a strong { color: var(--white); font-weight: 700; }
+
+.interp-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 2px;
+  background: var(--line);
+  transition: background 0.3s;
+}
+
+.interp-card:hover::before { background: var(--red); }
+
+/* ── STRATEGY ── */
+.strategy-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.strategy-card {
+  border-right: 1px solid var(--line);
+  overflow: hidden;
+  transition: background 0.3s;
+}
+
+.strategy-card:last-child { border-right: none; }
+.strategy-card:hover { background: rgba(255,255,255,0.015); }
+
+.strategy-head {
+  padding: 2.5rem 2.5rem 2rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.strategy-icon-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+}
+
+.strategy-emoji { font-size: 1.8rem; }
+
+.strategy-badge {
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.7rem;
+  border: 1px solid rgba(255,255,255,0.15);
+  color: var(--gray-text);
+}
+
+.strategy-card:nth-child(1) .strategy-badge { border-color: var(--red); color: var(--red); }
+
+.strategy-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2rem;
+  letter-spacing: 0.04em;
+  color: var(--white);
+  line-height: 1;
+}
+
+.strategy-body { padding: 2rem 2.5rem; }
+
+.strategy-item {
+  display: flex;
+  gap: 1rem;
+  padding: 0.85rem 0;
+  border-bottom: 1px solid var(--line);
+  align-items: flex-start;
+}
+
+.strategy-item:last-child { border-bottom: none; }
+
+.strategy-arrow {
+  color: var(--red);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+  margin-top: 0.05rem;
+}
+
+.strategy-text {
+  font-size: 0.8rem;
+  color: var(--gray-text);
+  line-height: 1.55;
+  transition: color 0.2s;
+}
+
+.strategy-card:hover .strategy-text { color: rgba(255,255,255,0.7); }
+
+/* ── CONCLUSION ── */
+.conclusion {
+  padding: 10rem 4vw;
+  position: relative;
+  overflow: hidden;
+  border-bottom: none;
+}
+
+.conc-bg {
+  position: absolute;
+  inset: 0;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 20vw;
+  color: rgba(227,28,28,0.04);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
+  letter-spacing: -0.02em;
+}
+
+.conc-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 1000px;
+}
+
+.conc-tag {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 2rem;
+}
+
+.conc-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(3.5rem, 9vw, 9rem);
+  line-height: 0.9;
+  letter-spacing: -0.01em;
+  color: var(--white);
+  margin-bottom: 3rem;
+}
+
+.conc-title .outline {
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(255,255,255,0.3);
+}
+
+.conc-title .red-line { color: var(--red); }
+
+.conc-divider {
+  width: 60px;
+  height: 2px;
+  background: var(--red);
+  margin-bottom: 2rem;
+}
+
+.conc-body {
+  font-size: 1rem;
+  color: var(--gray-text);
+  line-height: 1.9;
+  font-weight: 300;
+  max-width: 680px;
+  margin-bottom: 3rem;
+}
+
+.conc-body strong { color: var(--white); font-weight: 700; }
+
+.conc-tags {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.conc-pill {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.55rem 1.2rem;
+  border: 1px solid rgba(255,255,255,0.15);
+  color: rgba(255,255,255,0.5);
+  transition: border-color 0.2s, color 0.2s;
+  cursor: default;
+}
+
+.conc-pill:hover { border-color: var(--red); color: var(--white); }
+
+/* ── FOOTER ── */
+footer {
+  padding: 2rem 4vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid var(--line);
+}
+
+.footer-logo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.1rem;
+  letter-spacing: 0.1em;
+  color: rgba(255,255,255,0.3);
+}
+
+.footer-copy {
+  font-size: 0.65rem;
+  color: rgba(255,255,255,0.2);
+  letter-spacing: 0.1em;
+}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1);
+}
+
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .kpi-grid { grid-template-columns: 1fr 1fr; }
+  .kpi-card:nth-child(2n) { border-right: none; }
+  .kpi-card:nth-child(n+3) { border-top: 1px solid var(--line); }
+  .dash-inner { grid-template-columns: 1fr; }
+  .dash-panel { border-right: none; border-bottom: 1px solid var(--line); }
+  .interp-grid { grid-template-columns: 1fr; }
+  .interp-card { border-right: none; border-bottom: 1px solid var(--line); }
+  .strategy-grid { grid-template-columns: 1fr; }
+  .strategy-card { border-right: none; border-bottom: 1px solid var(--line); }
+  .hero-stats { gap: 1.5rem; }
+  .hero-bottom { flex-direction: column; align-items: flex-start; }
+  .nav-links { display: none; }
+  body { cursor: auto; }
+  #cursor, #cursor-ring { display: none; }
+}
+</style>
+</head>
+<body>
+
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">SHINWA<span>.</span>WORLD</div>
+  <ul class="nav-links">
+    <li><a href="#kpi">지표</a></li>
+    <li><a href="#dash">대시보드</a></li>
+    <li><a href="#insight">인사이트</a></li>
+    <li><a href="#strategy">전략</a></li>
+    <li><a href="#conclusion">결론</a></li>
+  </ul>
+  <a href="#strategy" class="nav-cta">전략 보기</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg-text">INSIGHT</div>
+  <div class="scroll-indicator">
+    <div class="scroll-line"></div>
+    <span class="scroll-label">Scroll</span>
+  </div>
+  <p class="hero-tag">2025 제주특별자치도 방문관광객 실태조사 기반</p>
+  <h1 class="hero-title">
+    <div>고객</div>
+    <div class="line2">인사이트</div>
+    <div class="line3">2025</div>
+  </h1>
+  <div class="hero-bottom">
+    <p class="hero-desc">내국인·외국인·크루즈 관광객 특성을 바탕으로 분석한 신화월드 핵심 고객 데이터 — 복합 체류형 공간으로의 포지셔닝 전략</p>
+    <div class="hero-stats">
+      <div>
+        <div class="hero-stat-num">91<span>%</span></div>
+        <div class="hero-stat-label">휴가형 내국인</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">82<span>%</span></div>
+        <div class="hero-stat-label">외국인 호텔 선호</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">51<span>%</span></div>
+        <div class="hero-stat-label">가족 동반 비율</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- KPI -->
+<section id="kpi">
+  <div class="section-header reveal">
+    <div class="section-num">01</div>
+    <div>
+      <div class="section-tag">핵심 지표</div>
+      <div class="section-title">KEY METRICS</div>
+    </div>
+  </div>
+  <div class="kpi-grid">
+    <div class="kpi-card reveal">
+      <span class="kpi-emoji">🇰🇷</span>
+      <div class="kpi-cat">내국인</div>
+      <div class="kpi-name">가족·친지 동반 비율</div>
+      <div class="kpi-big">51.4%</div>
+      <div class="kpi-sub">절반 이상이 가족 단위 방문. 친구·연인 38.2% 포함 시 약 90%가 그룹형 고객.</div>
+    </div>
+    <div class="kpi-card reveal">
+      <span class="kpi-emoji">🌏</span>
+      <div class="kpi-cat">외국인</div>
+      <div class="kpi-name">호텔 숙박 이용률</div>
+      <div class="kpi-big red">82.1%</div>
+      <div class="kpi-sub">외국인의 압도적 호텔 선호. 복합 리조트 타입의 신화월드와 최적 궁합.</div>
+    </div>
+    <div class="kpi-card reveal">
+      <span class="kpi-emoji">🚢</span>
+      <div class="kpi-cat">크루즈</div>
+      <div class="kpi-name">소비 특성</div>
+      <div class="kpi-big">단기형</div>
+      <div class="kpi-sub">짧은 체류지만 쇼핑·식도락 집중 소비. 압축형 당일 체험 상품이 유효.</div>
+    </div>
+    <div class="kpi-card reveal">
+      <span class="kpi-emoji">🏨</span>
+      <div class="kpi-cat">숙박 선호</div>
+      <div class="kpi-name">내국인 호텔 이용률</div>
+      <div class="kpi-big">57.0%</div>
+      <div class="kpi-sub">단순 잠자리가 아닌 경험이 되는 숙박 공간 선호 트렌드 뚜렷.</div>
+    </div>
+    <div class="kpi-card reveal">
+      <span class="kpi-emoji">👨‍👩‍👧</span>
+      <div class="kpi-cat">가족형 고객</div>
+      <div class="kpi-name">휴가·순수여행 목적</div>
+      <div class="kpi-big red">91.8%</div>
+      <div class="kpi-sub">10명 중 9명이 순수 레저 목적. 신화월드 체험 상품과 완벽히 매칭.</div>
+    </div>
+    <div class="kpi-card reveal">
+      <span class="kpi-emoji">🛍️</span>
+      <div class="kpi-cat">쇼핑·식음</div>
+      <div class="kpi-name">전 고객군 구매 1위 품목</div>
+      <div class="kpi-big">간식류</div>
+      <div class="kpi-sub">외국인은 뷰티·패션 추가 반응. 즉시 구매 가능한 소비재 MD 강화 필요.</div>
+    </div>
+  </div>
+</section>
+
+<!-- DASHBOARD -->
+<section id="dash">
+  <div class="section-header reveal">
+    <div class="section-num">02</div>
+    <div>
+      <div class="section-tag">데이터 대시보드</div>
+      <div class="section-title">DASHBOARD</div>
+    </div>
+  </div>
+  <div class="dash-inner">
+    <div class="dash-panel reveal">
+      <div class="dash-title">🏨 숙박시설 선호</div>
+      <div class="bar-row">
+        <div class="bar-meta"><span class="bar-label">외국인 · 호텔</span><span class="bar-pct">82.1%</span></div>
+        <div class="bar-track"><div class="bar-fill red" data-w="82"></div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-meta"><span class="bar-label">내국인 · 호텔</span><span class="bar-pct">57.0%</span></div>
+        <div class="bar-track"><div class="bar-fill" data-w="57"></div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-meta"><span class="bar-label">내국인 · 펜션</span><span class="bar-pct">22.0%</span></div>
+        <div class="bar-track"><div class="bar-fill dim" data-w="22"></div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-meta"><span class="bar-label">내국인 · 콘도/리조트</span><span class="bar-pct">14.0%</span></div>
+        <div class="bar-track"><div class="bar-fill dim" data-w="14"></div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-meta"><span class="bar-label">외국인 · 콘도/리조트</span><span class="bar-pct">10.0%</span></div>
+        <div class="bar-track"><div class="bar-fill dim" data-w="10"></div></div>
+      </div>
+    </div>
+
+    <div class="dash-panel reveal">
+      <div class="dash-title">👥 동반 유형</div>
+      <div class="bar-row">
+        <div class="bar-meta"><span class="bar-label">내국인 · 가족·친지</span><span class="bar-pct">51.4%</span></div>
+        <div class="bar-track"><div class="bar-fill" data-w="51"></div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-meta"><span class="bar-label">외국인 · 친구·연인</span><span class="bar-pct">51.5%</span></div>
+        <div class="bar-track"><div class="bar-fill red" data-w="51"></div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-meta"><span class="bar-label">내국인 · 친구·연인</span><span class="bar-pct">38.2%</span></div>
+        <div class="bar-track"><div class="bar-fill dim" data-w="38"></div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-meta"><span class="bar-label">외국인 · 혼자</span><span class="bar-pct">10.5%</span></div>
+        <div class="bar-track"><div class="bar-fill dim" data-w="10"></div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-meta"><span class="bar-label">내국인 · 혼자</span><span class="bar-pct">5.0%</span></div>
+        <div class="bar-track"><div class="bar-fill dim" data-w="5"></div></div>
+      </div>
+    </div>
+
+    <div class="dash-panel reveal">
+      <div class="dash-title">✈️ 여행 목적 (내국인)</div>
+      <div class="bar-row">
+        <div class="bar-meta"><span class="bar-label">휴가·순수여행</span><span class="bar-pct">91.8%</span></div>
+        <div class="bar-track"><div class="bar-fill red" data-w="92"></div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-meta"><span class="bar-label">업무·출장</span><span class="bar-pct">5.0%</span></div>
+        <div class="bar-track"><div class="bar-fill dim" data-w="5"></div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-meta"><span class="bar-label">기타</span><span class="bar-pct">3.2%</span></div>
+        <div class="bar-track"><div class="bar-fill dim" data-w="3"></div></div>
+      </div>
+      <div style="margin-top:1.8rem;padding:1rem 0;border-top:1px solid var(--line)">
+        <p style="font-size:0.75rem;color:var(--gray-text);line-height:1.7">→ 10명 중 9명이 순수 레저 목적. 신화월드의 복합 체험 구조와 완벽하게 매칭되는 수요.</p>
+      </div>
+    </div>
+
+    <div class="dash-panel reveal">
+      <div class="dash-title">⭐ 만족 활동 순위</div>
+      <div class="bar-row">
+        <div class="bar-meta"><span class="bar-label">자연경관 감상</span><span class="bar-pct">1위</span></div>
+        <div class="bar-track"><div class="bar-fill" data-w="90"></div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-meta"><span class="bar-label">식도락</span><span class="bar-pct">2위</span></div>
+        <div class="bar-track"><div class="bar-fill red" data-w="75"></div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-meta"><span class="bar-label">박물관·테마공원</span><span class="bar-pct">3위</span></div>
+        <div class="bar-track"><div class="bar-fill dim" data-w="60"></div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-meta"><span class="bar-label">해변 활동</span><span class="bar-pct">4위</span></div>
+        <div class="bar-track"><div class="bar-fill dim" data-w="50"></div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-meta"><span class="bar-label">쇼핑</span><span class="bar-pct">5위</span></div>
+        <div class="bar-track"><div class="bar-fill dim" data-w="42"></div></div>
+      </div>
+    </div>
+
+    <div class="dash-table-wrap reveal">
+      <table class="dash-table">
+        <thead>
+          <tr>
+            <th>유형</th>
+            <th>동반 형태</th>
+            <th>숙박 선호</th>
+            <th>여행 목적</th>
+            <th>소비 패턴</th>
+            <th>신화월드 접점</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>내국인</td>
+            <td><span class="tag w">가족·친지 51.4%</span><span class="tag g">친구·연인 38.2%</span></td>
+            <td><span class="tag w">호텔 57%</span></td>
+            <td>휴가·순수여행 91.8%</td>
+            <td>간식, 농수산품, 체험</td>
+            <td>가족 패키지, 실내 콘텐츠</td>
+          </tr>
+          <tr>
+            <td>외국인</td>
+            <td><span class="tag r">친구·연인 51.5%</span><span class="tag g">혼자 10.5%</span></td>
+            <td><span class="tag r">호텔 82.1%</span></td>
+            <td>관광·레저 중심</td>
+            <td>뷰티, 식도락, 쇼핑</td>
+            <td>다국어, 포토스팟, 야간</td>
+          </tr>
+          <tr>
+            <td>크루즈</td>
+            <td><span class="tag g">단체·그룹 중심</span></td>
+            <td>당일 체험</td>
+            <td>단기 소비·관광</td>
+            <td>간식, 기념품, 화장품</td>
+            <td>압축 코스, 빠른 쇼핑</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- INTERPRETATION -->
+<section id="insight">
+  <div class="section-header reveal">
+    <div class="section-num">03</div>
+    <div>
+      <div class="section-tag">신화월드 관점 해석</div>
+      <div class="section-title">WHY IT<br>MATTERS</div>
+    </div>
+  </div>
+  <div class="interp-grid">
+    <div class="interp-card reveal">
+      <div class="interp-num">01</div>
+      <div class="interp-q">누가 핵심 타깃인가</div>
+      <div class="interp-a">내국인은 <strong>가족·휴가형</strong>, 외국인은 <strong>호텔 중심 친구·연인형</strong>이 핵심. 두 그룹 모두 단일 기능보다 보고–먹고–쉬고–체험하는 복합 경험을 원한다.</div>
+    </div>
+    <div class="interp-card reveal">
+      <div class="interp-num">02</div>
+      <div class="interp-q">어떤 서비스가 필요한가</div>
+      <div class="interp-a">내국인에게는 <strong>"아이와 함께, 비 와도, 하루 종일"</strong>이 핵심 메시지. 외국인에게는 언어 장벽 없이 숙박·쇼핑·식음을 한 동선에서 해결하는 <strong>안전한 복합 공간</strong> 경험이 필요하다.</div>
+    </div>
+    <div class="interp-card reveal">
+      <div class="interp-num">03</div>
+      <div class="interp-q">MD와 F&B 구성 방향</div>
+      <div class="interp-a">간식류가 전 고객군 구매 1위. 외국인은 뷰티·패션도 강함. <strong>즉시 사고 즐길 수 있는 소비재</strong>, SNS에 올리기 좋은 패키지가 더 잘 맞는다.</div>
+    </div>
+  </div>
+</section>
+
+<!-- STRATEGY -->
+<section id="strategy">
+  <div class="section-header reveal">
+    <div class="section-num">04</div>
+    <div>
+      <div class="section-tag">실행 전략</div>
+      <div class="section-title">ACTION<br>STRATEGY</div>
+    </div>
+  </div>
+  <div class="strategy-grid">
+    <div class="strategy-card reveal">
+      <div class="strategy-head">
+        <div class="strategy-icon-row">
+          <span class="strategy-emoji">👨‍👩‍👧‍👦</span>
+          <span class="strategy-badge">PRIORITY</span>
+        </div>
+        <div class="strategy-title">가족 고객<br>대응 전략</div>
+      </div>
+      <div class="strategy-body">
+        <div class="strategy-item"><span class="strategy-arrow">→</span><span class="strategy-text">아이 동반 이동 편의 동선 및 실내 콘텐츠 강화</span></div>
+        <div class="strategy-item"><span class="strategy-arrow">→</span><span class="strategy-text">우천 시에도 즐길 수 있는 실내 대체 프로그램 구성</span></div>
+        <div class="strategy-item"><span class="strategy-arrow">→</span><span class="strategy-text">가족 단위 숙박·식음 통합 패키지 상품 기획</span></div>
+        <div class="strategy-item"><span class="strategy-arrow">→</span><span class="strategy-text">하루 종일 머물 수 있는 동선 및 휴식 공간 확충</span></div>
+        <div class="strategy-item"><span class="strategy-arrow">→</span><span class="strategy-text">"한 번에 해결" 메시지 중심 마케팅 커뮤니케이션</span></div>
+        <div class="strategy-item"><span class="strategy-arrow">→</span><span class="strategy-text">추억을 남길 수 있는 포토존·체험 포인트 강화</span></div>
+      </div>
+    </div>
+    <div class="strategy-card reveal">
+      <div class="strategy-head">
+        <div class="strategy-icon-row">
+          <span class="strategy-emoji">🌏</span>
+          <span class="strategy-badge">INBOUND</span>
+        </div>
+        <div class="strategy-title">외국인 고객<br>대응 전략</div>
+      </div>
+      <div class="strategy-body">
+        <div class="strategy-item"><span class="strategy-arrow">→</span><span class="strategy-text">다국어 안내 시스템 강화 (영·중·일 최소 3개국어)</span></div>
+        <div class="strategy-item"><span class="strategy-arrow">→</span><span class="strategy-text">호텔–쇼핑–F&B 연결 동선 단순화</span></div>
+        <div class="strategy-item"><span class="strategy-arrow">→</span><span class="strategy-text">야간에도 즐길 수 있는 분위기·콘텐츠 제공</span></div>
+        <div class="strategy-item"><span class="strategy-arrow">→</span><span class="strategy-text">커플·소규모 그룹 특화 체험 프로그램 개발</span></div>
+        <div class="strategy-item"><span class="strategy-arrow">→</span><span class="strategy-text">SNS 포토스팟 기획 및 사진 명소 강조</span></div>
+        <div class="strategy-item"><span class="strategy-arrow">→</span><span class="strategy-text">뷰티·패션 MD 강화 (향수·화장품 수요 대응)</span></div>
+      </div>
+    </div>
+    <div class="strategy-card reveal">
+      <div class="strategy-head">
+        <div class="strategy-icon-row">
+          <span class="strategy-emoji">🚢</span>
+          <span class="strategy-badge">SHORT-STAY</span>
+        </div>
+        <div class="strategy-title">단기 체류<br>대응 전략</div>
+      </div>
+      <div class="strategy-body">
+        <div class="strategy-item"><span class="strategy-arrow">→</span><span class="strategy-text">1~2시간 압축 체험 코스 상품화</span></div>
+        <div class="strategy-item"><span class="strategy-arrow">→</span><span class="strategy-text">빠른 식사 + 쇼핑 묶음 패키지 구성</span></div>
+        <div class="strategy-item"><span class="strategy-arrow">→</span><span class="strategy-text">포토스팟 중심 투어 루트 제공</span></div>
+        <div class="strategy-item"><span class="strategy-arrow">→</span><span class="strategy-text">제주 기념 간식 묶음 판매 코너 운영</span></div>
+        <div class="strategy-item"><span class="strategy-arrow">→</span><span class="strategy-text">크루즈 항만 연계 셔틀·교통 정보 제공</span></div>
+        <div class="strategy-item"><span class="strategy-arrow">→</span><span class="strategy-text">즉시 구매 가능한 소용량·휴대형 MD 구성</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONCLUSION -->
+<section id="conclusion" class="conclusion">
+  <div class="conc-bg">SHINWA</div>
+  <div class="conc-inner">
+    <p class="conc-tag reveal">결론 — CONCLUSION</p>
+    <h2 class="conc-title reveal">
+      <div>복합 체류형</div>
+      <div class="outline">공간으로의</div>
+      <div class="red-line">포지셔닝</div>
+    </h2>
+    <div class="conc-divider reveal"></div>
+    <p class="conc-body reveal">
+      제주 관광객은 멀리 이동하며 여러 곳을 찍는 여행보다,
+      <strong>한 공간 안에서 숙박·식음·쇼핑·체험을 함께 해결</strong>하고 싶어하는 경향이 뚜렷하다.
+      내국인은 가족 휴가형, 외국인은 호텔 중심 친구·연인형으로 신화월드와 궁합이 좋다.
+      신화월드는 <strong>"숙박만 좋은 곳"보다 "하루를 보내기 좋은 복합 경험 공간"</strong>으로
+      포지셔닝될수록 경쟁력이 높아진다.
+    </p>
+    <div class="conc-tags reveal">
+      <span class="conc-pill">복합 체류형 포지셔닝</span>
+      <span class="conc-pill">가족·휴가형 내국인</span>
+      <span class="conc-pill">호텔 선호 외국인</span>
+      <span class="conc-pill">F&B · 쇼핑 강화</span>
+      <span class="conc-pill">다국어 환경 구축</span>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">SHINWA WORLD — 2025 INSIGHT REPORT</div>
+  <div class="footer-copy">Based on 2025 제주특별자치도 방문관광객 실태조사</div>
+</footer>
+
+<script>
+// Custom cursor
+const cursor = document.getElementById('cursor');
+const ring = document.getElementById('cursor-ring');
+let mx = 0, my = 0, rx = 0, ry = 0;
+
+document.addEventListener('mousemove', e => {
+  mx = e.clientX; my = e.clientY;
+  cursor.style.left = mx + 'px';
+  cursor.style.top = my + 'px';
+});
+
+(function animateRing() {
+  rx += (mx - rx) * 0.12;
+  ry += (my - ry) * 0.12;
+  ring.style.left = rx + 'px';
+  ring.style.top = ry + 'px';
+  requestAnimationFrame(animateRing);
+})();
+
+document.querySelectorAll('a, .kpi-card, .strategy-card, .interp-card, .conc-pill').forEach(el => {
+  el.addEventListener('mouseenter', () => {
+    cursor.style.width = '6px'; cursor.style.height = '6px';
+    ring.style.width = '60px'; ring.style.height = '60px';
+  });
+  el.addEventListener('mouseleave', () => {
+    cursor.style.width = '12px'; cursor.style.height = '12px';
+    ring.style.width = '40px'; ring.style.height = '40px';
+  });
+});
+
+// Scroll reveal
+const ro = new IntersectionObserver(entries => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) {
+      setTimeout(() => e.target.classList.add('visible'), i * 80);
+      ro.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
+
+// Bar animation
+const bo = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      setTimeout(() => { e.target.style.width = e.target.dataset.w + '%'; }, 200);
+      bo.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.4 });
+document.querySelectorAll('.bar-fill').forEach(b => bo.observe(b));
+</script>
+</body>
+</html>
