@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>제주더큰내일센터 뉴스레터 2025 April</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Noto+Serif+KR:wght@400;600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --black: #000;
+    --white: #fff;
+    --gray-100: #f7f7f7;
+    --gray-200: #ebebeb;
+    --gray-400: #999;
+    --gray-600: #555;
+    --gray-800: #1a1a1a;
+    --accent: #1259c3;
+    --accent-light: #e8f0fc;
+    --green: #008b5e;
+    --red: #c0392b;
+    --amber: #c47b00;
+    --radius: 20px;
+    --radius-sm: 12px;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', 'Noto Sans KR', sans-serif;
+    background: var(--white);
+    color: var(--black);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(255,255,255,0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+    padding: 0 48px;
+    height: 56px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .nav-logo {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 15px; font-weight: 600;
+    color: var(--black);
+    letter-spacing: -0.02em;
+    text-decoration: none;
+  }
+  .nav-links { display: flex; gap: 32px; }
+  .nav-links a {
+    font-size: 13px; font-weight: 400;
+    color: var(--gray-600);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--black); }
+  .nav-cta {
+    background: var(--black);
+    color: var(--white);
+    border: none; cursor: pointer;
+    font-family: inherit; font-size: 13px; font-weight: 500;
+    padding: 8px 20px;
+    border-radius: 999px;
+    transition: background 0.2s, transform 0.1s;
+  }
+  .nav-cta:hover { background: #333; transform: scale(1.02); }
+
+  /* HERO */
+  .hero {
+    background: var(--black);
+    min-height: 92vh;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    text-align: center;
+    padding: 80px 24px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-bg-circle {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.18;
+    pointer-events: none;
+  }
+  .hero-bg-circle.c1 { width: 500px; height: 500px; background: #1259c3; top: -100px; left: -100px; }
+  .hero-bg-circle.c2 { width: 400px; height: 400px; background: #008b5e; bottom: -80px; right: -60px; }
+  .hero-bg-circle.c3 { width: 300px; height: 300px; background: #5856d6; top: 40%; left: 60%; }
+
+  .hero-eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.15);
+    color: rgba(255,255,255,0.7);
+    font-size: 12px; font-weight: 400; letter-spacing: 0.08em;
+    padding: 6px 16px;
+    border-radius: 999px;
+    margin-bottom: 32px;
+    animation: fadeUp 0.6s ease both;
+  }
+  .hero-eyebrow .dot { width: 6px; height: 6px; border-radius: 50%; background: #4ade80; animation: pulse 2s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+
+  .hero h1 {
+    font-family: 'DM Sans', 'Noto Serif KR', serif;
+    font-size: clamp(42px, 7vw, 88px);
+    font-weight: 300;
+    color: var(--white);
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    margin-bottom: 24px;
+    animation: fadeUp 0.6s 0.1s ease both;
+  }
+  .hero h1 strong { font-weight: 600; }
+  .hero h1 .accent-text {
+    background: linear-gradient(90deg, #60a5fa, #4ade80);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .hero-sub {
+    font-size: 17px; font-weight: 300;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.7;
+    max-width: 520px;
+    margin-bottom: 44px;
+    animation: fadeUp 0.6s 0.2s ease both;
+  }
+
+  .hero-actions {
+    display: flex; gap: 12px; flex-wrap: wrap; justify-content: center;
+    animation: fadeUp 0.6s 0.3s ease both;
+  }
+  .btn-primary {
+    background: var(--white); color: var(--black);
+    border: none; cursor: pointer;
+    font-family: inherit; font-size: 15px; font-weight: 500;
+    padding: 14px 32px; border-radius: 999px;
+    transition: transform 0.15s, background 0.2s;
+  }
+  .btn-primary:hover { transform: scale(1.03); }
+  .btn-ghost {
+    background: transparent; color: var(--white);
+    border: 1px solid rgba(255,255,255,0.3); cursor: pointer;
+    font-family: inherit; font-size: 15px; font-weight: 400;
+    padding: 14px 32px; border-radius: 999px;
+    transition: border-color 0.2s, transform 0.15s;
+  }
+  .btn-ghost:hover { border-color: rgba(255,255,255,0.7); transform: scale(1.02); }
+
+  .hero-scroll {
+    position: absolute; bottom: 36px; left: 50%; transform: translateX(-50%);
+    display: flex; flex-direction: column; align-items: center; gap: 8px;
+    color: rgba(255,255,255,0.3); font-size: 11px; letter-spacing: 0.1em;
+    animation: fadeIn 1s 1s ease both;
+  }
+  .scroll-line {
+    width: 1px; height: 40px;
+    background: linear-gradient(to bottom, rgba(255,255,255,0.4), transparent);
+    animation: scrollDown 1.6s infinite;
+  }
+  @keyframes scrollDown { 0%{transform:scaleY(0);transform-origin:top} 50%{transform:scaleY(1);transform-origin:top} 51%{transform-origin:bottom} 100%{transform:scaleY(0);transform-origin:bottom} }
+
+  @keyframes fadeUp { from{opacity:0;transform:translateY(24px)} to{opacity:1;transform:translateY(0)} }
+  @keyframes fadeIn { from{opacity:0} to{opacity:1} }
+
+  /* STATS BAND */
+  .stats-band {
+    background: var(--gray-100);
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    border-bottom: 1px solid var(--gray-200);
+  }
+  .stat-item {
+    padding: 40px 32px;
+    border-right: 1px solid var(--gray-200);
+    text-align: center;
+  }
+  .stat-item:last-child { border-right: none; }
+  .stat-num {
+    font-size: 48px; font-weight: 300;
+    letter-spacing: -0.04em; line-height: 1;
+    margin-bottom: 6px;
+  }
+  .stat-num span { font-weight: 600; }
+  .stat-label { font-size: 13px; color: var(--gray-600); }
+  .stat-change { font-size: 12px; color: var(--green); margin-top: 4px; font-weight: 500; }
+
+  /* SECTION COMMON */
+  section { padding: 100px 48px; }
+  .section-eyebrow {
+    font-size: 12px; font-weight: 500; letter-spacing: 0.1em;
+    color: var(--accent); text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  .section-title {
+    font-size: clamp(28px, 4vw, 44px);
+    font-weight: 300; letter-spacing: -0.03em; line-height: 1.15;
+    margin-bottom: 12px;
+  }
+  .section-title strong { font-weight: 600; }
+  .section-sub {
+    font-size: 16px; color: var(--gray-600);
+    line-height: 1.7; max-width: 520px;
+  }
+  .section-header { margin-bottom: 56px; }
+
+  /* NEWS SECTION */
+  .news-section { background: var(--white); }
+  .news-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr;
+    gap: 2px;
+    background: var(--gray-200);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+  .news-card {
+    background: var(--white);
+    padding: 40px 36px;
+    display: flex; flex-direction: column;
+    position: relative; overflow: hidden;
+    cursor: pointer;
+    transition: background 0.25s;
+  }
+  .news-card:hover { background: var(--gray-100); }
+  .news-card.featured { grid-row: 1 / 3; }
+  .news-card-tag {
+    display: inline-block;
+    font-size: 11px; font-weight: 500; letter-spacing: 0.06em;
+    padding: 4px 12px; border-radius: 999px;
+    margin-bottom: 20px;
+  }
+  .tag-program { background: #e8f0fc; color: #1259c3; }
+  .tag-event { background: #e8f8f2; color: #008b5e; }
+  .tag-notice { background: #fff4e0; color: #c47b00; }
+
+  .news-card h3 {
+    font-size: 20px; font-weight: 500;
+    letter-spacing: -0.02em; line-height: 1.4;
+    margin-bottom: 14px;
+    flex: 1;
+  }
+  .news-card.featured h3 { font-size: 28px; font-weight: 400; }
+  .news-card p {
+    font-size: 14px; color: var(--gray-600); line-height: 1.7;
+    margin-bottom: 24px;
+  }
+  .news-meta { font-size: 12px; color: var(--gray-400); }
+  .news-arrow {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 13px; font-weight: 500; color: var(--accent);
+    margin-top: 20px;
+    transition: gap 0.2s;
+  }
+  .news-card:hover .news-arrow { gap: 10px; }
+
+  .news-icon {
+    width: 48px; height: 48px;
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px; margin-bottom: 20px;
+  }
+  .icon-blue { background: #e8f0fc; }
+  .icon-green { background: #e8f8f2; }
+  .icon-amber { background: #fff4e0; }
+
+  /* JOBS SECTION */
+  .jobs-section { background: var(--black); color: var(--white); }
+  .jobs-section .section-eyebrow { color: #60a5fa; }
+  .jobs-section .section-sub { color: rgba(255,255,255,0.5); }
+
+  .jobs-list { display: flex; flex-direction: column; gap: 2px; }
+  .job-row {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: var(--radius-sm);
+    padding: 28px 36px;
+    display: flex; align-items: center; gap: 28px;
+    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s;
+    margin-bottom: 10px;
+  }
+  .job-row:hover { background: rgba(255,255,255,0.07); border-color: rgba(255,255,255,0.15); }
+  .job-company-logo {
+    width: 52px; height: 52px;
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px; font-weight: 600; text-align: center; line-height: 1.3;
+    flex-shrink: 0;
+  }
+  .logo-kakao { background: #FEE500; color: #000; }
+  .logo-jejuair { background: #0067b2; color: #fff; }
+  .logo-green { background: #008b5e; color: #fff; }
+
+  .job-info-wrap { flex: 1; }
+  .job-company-name { font-size: 12px; color: rgba(255,255,255,0.4); margin-bottom: 4px; }
+  .job-title-row { font-size: 18px; font-weight: 400; letter-spacing: -0.01em; }
+  .job-pills { display: flex; gap: 8px; margin-top: 10px; flex-wrap: wrap; }
+  .pill {
+    font-size: 11px; font-weight: 400;
+    padding: 3px 10px; border-radius: 999px;
+    border: 1px solid rgba(255,255,255,0.15);
+    color: rgba(255,255,255,0.5);
+  }
+  .job-right { display: flex; flex-direction: column; align-items: flex-end; gap: 8px; flex-shrink: 0; }
+  .dday {
+    font-size: 13px; font-weight: 600;
+    color: #f87171;
+    background: rgba(248,113,113,0.1);
+    padding: 4px 12px; border-radius: 999px;
+  }
+  .dday.safe { color: #4ade80; background: rgba(74,222,128,0.1); }
+  .apply-btn {
+    background: transparent; color: rgba(255,255,255,0.7);
+    border: 1px solid rgba(255,255,255,0.2); cursor: pointer;
+    font-family: inherit; font-size: 12px; font-weight: 400;
+    padding: 7px 18px; border-radius: 999px;
+    transition: background 0.2s, color 0.2s;
+  }
+  .apply-btn:hover { background: rgba(255,255,255,0.1); color: var(--white); }
+
+  /* DASHBOARD */
+  .dash-section { background: var(--gray-100); }
+  .dash-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 16px;
+  }
+
+  .dash-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 36px;
+    overflow: hidden;
+    position: relative;
+  }
+  .dash-card.wide { grid-column: 1 / 3; }
+  .dash-card.accent-dark { background: var(--black); color: var(--white); }
+  .dash-card.accent-blue { background: var(--accent); color: var(--white); }
+
+  .kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+  }
+  .kpi-item { padding: 0 0 0 0; }
+  .kpi-item + .kpi-item { border-left: 1px solid rgba(0,0,0,0.08); padding-left: 36px; }
+  .accent-dark .kpi-item + .kpi-item { border-left-color: rgba(255,255,255,0.1); }
+
+  .kpi-label { font-size: 13px; color: var(--gray-600); margin-bottom: 10px; }
+  .accent-dark .kpi-label { color: rgba(255,255,255,0.45); }
+  .kpi-value { font-size: 44px; font-weight: 300; letter-spacing: -0.05em; line-height: 1; }
+  .kpi-unit { font-size: 20px; font-weight: 400; }
+  .kpi-delta { display: inline-flex; align-items: center; gap: 4px; font-size: 12px; font-weight: 500; margin-top: 8px; color: var(--green); }
+  .accent-dark .kpi-delta { color: #4ade80; }
+
+  .chart-title { font-size: 15px; font-weight: 500; margin-bottom: 28px; letter-spacing: -0.01em; }
+  .bar-chart { display: flex; flex-direction: column; gap: 14px; }
+  .bar-row { display: flex; align-items: center; gap: 16px; }
+  .bar-lbl { font-size: 13px; color: var(--gray-600); width: 72px; flex-shrink: 0; }
+  .bar-track { flex: 1; background: var(--gray-100); border-radius: 4px; height: 6px; overflow: hidden; }
+  .bar-fill { height: 100%; border-radius: 4px; transition: width 1.2s cubic-bezier(.22,1,.36,1); }
+  .bar-val { font-size: 13px; font-weight: 500; width: 36px; text-align: right; flex-shrink: 0; }
+
+  .donut-wrap {
+    display: flex; align-items: center; gap: 36px;
+  }
+  .donut-labels { display: flex; flex-direction: column; gap: 14px; flex: 1; }
+  .donut-label-row { display: flex; align-items: center; justify-content: space-between; }
+  .donut-dot-label { display: flex; align-items: center; gap: 10px; font-size: 13px; color: rgba(255,255,255,0.7); }
+  .donut-dot { width: 8px; height: 8px; border-radius: 50%; }
+  .donut-pct { font-size: 14px; font-weight: 500; color: var(--white); }
+
+  /* FOOTER */
+  footer {
+    background: var(--black);
+    color: rgba(255,255,255,0.4);
+    padding: 60px 48px 40px;
+  }
+  .footer-top {
+    display: flex; justify-content: space-between; align-items: flex-start;
+    padding-bottom: 40px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    margin-bottom: 32px;
+  }
+  .footer-brand {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 18px; font-weight: 600;
+    color: var(--white); margin-bottom: 8px;
+  }
+  .footer-tagline { font-size: 13px; color: rgba(255,255,255,0.35); }
+  .footer-links { display: flex; gap: 40px; }
+  .footer-col h4 { font-size: 12px; font-weight: 500; color: rgba(255,255,255,0.6); margin-bottom: 16px; }
+  .footer-col a { display: block; font-size: 12px; color: rgba(255,255,255,0.35); text-decoration: none; margin-bottom: 10px; transition: color 0.2s; }
+  .footer-col a:hover { color: rgba(255,255,255,0.7); }
+  .footer-bottom { display: flex; justify-content: space-between; font-size: 12px; }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    nav { padding: 0 24px; }
+    .nav-links { display: none; }
+    section { padding: 72px 24px; }
+    .stats-band { grid-template-columns: 1fr; }
+    .stat-item { border-right: none; border-bottom: 1px solid var(--gray-200); }
+    .news-grid { grid-template-columns: 1fr; }
+    .news-card.featured { grid-row: auto; }
+    .job-row { flex-direction: column; align-items: flex-start; gap: 16px; }
+    .job-right { flex-direction: row; align-items: center; }
+    .dash-layout { grid-template-columns: 1fr; }
+    .dash-card.wide { grid-column: auto; }
+    .kpi-grid { grid-template-columns: 1fr; gap: 28px; }
+    .kpi-item + .kpi-item { border-left: none; padding-left: 0; border-top: 1px solid rgba(0,0,0,0.08); padding-top: 28px; }
+    .donut-wrap { flex-direction: column; }
+    .footer-top { flex-direction: column; gap: 36px; }
+    .footer-links { gap: 24px; }
+    .footer-bottom { flex-direction: column; gap: 8px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">제주더큰내일센터</a>
+  <div class="nav-links">
+    <a href="#news">센터 소식</a>
+    <a href="#jobs">채용 정보</a>
+    <a href="#dashboard">현황</a>
+    <a href="#contact">문의</a>
+  </div>
+  <button class="nav-cta">지원하기 →</button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg-circle c1"></div>
+  <div class="hero-bg-circle c2"></div>
+  <div class="hero-bg-circle c3"></div>
+  <div class="hero-eyebrow">
+    <span class="dot"></span>
+    2025 April Newsletter
+  </div>
+  <h1>청년의 <strong class="accent-text">더 큰 내일</strong>을<br>제주에서 시작합니다</h1>
+  <p class="hero-sub">제주더큰내일센터가 제주 청년의 성장과 도전을 응원합니다. 이달의 소식과 기회를 확인해 보세요.</p>
+  <div class="hero-actions">
+    <button class="btn-primary">이달 소식 보기</button>
+    <button class="btn-ghost">채용 정보 →</button>
+  </div>
+  <div class="hero-scroll">
+    SCROLL
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-band">
+  <div class="stat-item">
+    <div class="stat-num">1,<span>248</span></div>
+    <div class="stat-label">누적 수료생</div>
+    <div class="stat-change">▲ 87명 이번 분기</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num"><span>78</span>%</div>
+    <div class="stat-label">취업·창업 연계율</div>
+    <div class="stat-change">▲ 3%p 상승</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num">1<span>34</span></div>
+    <div class="stat-label">협력 기업 파트너</div>
+    <div class="stat-change">▲ 12곳 신규 가입</div>
+  </div>
+</div>
+
+<!-- NEWS -->
+<section class="news-section" id="news">
+  <div class="section-header">
+    <div class="section-eyebrow">Center News</div>
+    <h2 class="section-title">이달의 <strong>센터 소식</strong></h2>
+    <p class="section-sub">제주더큰내일센터의 최신 프로그램과 공지사항을 전해드립니다.</p>
+  </div>
+  <div class="news-grid">
+    <!-- Featured -->
+    <div class="news-card featured">
+      <div class="news-icon icon-blue">🚀</div>
+      <span class="news-card-tag tag-program">프로그램 모집</span>
+      <h3>2025 상반기 '더큰내일 챌린지'<br>참가자 모집</h3>
+      <p>6주 집중 성장 프로그램으로, 제주 청년 20명을 선발합니다. 실무 프로젝트부터 1:1 멘토링, 기업 탐방까지 — 당신의 커리어를 본격적으로 설계할 기회입니다.</p>
+      <div class="news-meta">2025. 04. 01 · 접수 마감 4월 15일</div>
+      <div class="news-arrow">자세히 보기 →</div>
+    </div>
+    <!-- Card 2 -->
+    <div class="news-card">
+      <div class="news-icon icon-green">🤝</div>
+      <span class="news-card-tag tag-event">행사 후기</span>
+      <h3>수료생 네트워킹 데이 성황리 마무리</h3>
+      <p>수료생 68명이 한자리에서 선배 창업가와 깊이 있는 이야기를 나눴습니다.</p>
+      <div class="news-meta">2025. 03. 28</div>
+      <div class="news-arrow">더보기 →</div>
+    </div>
+    <!-- Card 3 -->
+    <div class="news-card">
+      <div class="news-icon icon-amber">🏢</div>
+      <span class="news-card-tag tag-notice">공간 안내</span>
+      <h3>협업 라운지 리뉴얼 — 4월 10일 오픈</h3>
+      <p>새 협업 라운지와 1인 집중 부스, 앱 기반 예약 시스템이 도입됩니다.</p>
+      <div class="news-meta">2025. 04. 03</div>
+      <div class="news-arrow">더보기 →</div>
+    </div>
+  </div>
+</section>
+
+<!-- JOBS -->
+<section class="jobs-section" id="jobs">
+  <div class="section-header">
+    <div class="section-eyebrow">Job Opportunities</div>
+    <h2 class="section-title" style="color:#fff">이달의 <strong>기업 채용 소식</strong></h2>
+    <p class="section-sub">제주더큰내일센터 파트너 기업의 채용 정보를 가장 빠르게 전달합니다.</p>
+  </div>
+  <div class="jobs-list">
+    <div class="job-row">
+      <div class="job-company-logo logo-kakao">카카오<br>제주</div>
+      <div class="job-info-wrap">
+        <div class="job-company-name">카카오 제주오피스</div>
+        <div class="job-title-row">서비스 기획 인턴 (제주 청년 우대)</div>
+        <div class="job-pills">
+          <span class="pill">정규직 전환형</span>
+          <span class="pill">제주 근무</span>
+          <span class="pill">경력 무관</span>
+          <span class="pill">IT·기획</span>
+        </div>
+      </div>
+      <div class="job-right">
+        <span class="dday">D-11</span>
+        <button class="apply-btn">지원하기</button>
+      </div>
+    </div>
+    <div class="job-row">
+      <div class="job-company-logo logo-jejuair">제주<br>항공</div>
+      <div class="job-info-wrap">
+        <div class="job-company-name">제주항공</div>
+        <div class="job-title-row">디지털 마케팅 · 콘텐츠 담당자</div>
+        <div class="job-pills">
+          <span class="pill">신입</span>
+          <span class="pill">서울 / 제주</span>
+          <span class="pill">콘텐츠·마케팅</span>
+        </div>
+      </div>
+      <div class="job-right">
+        <span class="dday safe">D-18</span>
+        <button class="apply-btn">지원하기</button>
+      </div>
+    </div>
+    <div class="job-row">
+      <div class="job-company-logo logo-green">그린<br>벤처스</div>
+      <div class="job-info-wrap">
+        <div class="job-company-name">그린벤처스 (제주 로컬 스타트업)</div>
+        <div class="job-title-row">ESG · 지속가능경영 리서처</div>
+        <div class="job-pills">
+          <span class="pill">인턴십 6개월</span>
+          <span class="pill">재택 병행</span>
+          <span class="pill">환경·사회</span>
+        </div>
+      </div>
+      <div class="job-right">
+        <span class="dday">D-5</span>
+        <button class="apply-btn">지원하기</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DASHBOARD -->
+<section class="dash-section" id="dashboard">
+  <div class="section-header">
+    <div class="section-eyebrow">Dashboard</div>
+    <h2 class="section-title">센터 <strong>현황 대시보드</strong></h2>
+    <p class="section-sub">2025년 1분기 기준 주요 지표를 한눈에 확인하세요.</p>
+  </div>
+  <div class="dash-layout">
+
+    <!-- KPI Wide -->
+    <div class="dash-card wide accent-dark">
+      <div class="kpi-grid">
+        <div class="kpi-item">
+          <div class="kpi-label">누적 수료생</div>
+          <div class="kpi-value">1,248<span class="kpi-unit" style="font-size:18px;opacity:.5">명</span></div>
+          <div class="kpi-delta">▲ 87명 신규 수료</div>
+        </div>
+        <div class="kpi-item">
+          <div class="kpi-label">취업·창업 연계율</div>
+          <div class="kpi-value">78<span class="kpi-unit" style="opacity:.5">%</span></div>
+          <div class="kpi-delta">▲ 3%p 상승</div>
+        </div>
+        <div class="kpi-item">
+          <div class="kpi-label">협력 파트너 기업</div>
+          <div class="kpi-value">134<span class="kpi-unit" style="font-size:18px;opacity:.5">개사</span></div>
+          <div class="kpi-delta">▲ 12개사 신규</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bar Chart -->
+    <div class="dash-card">
+      <div class="chart-title">분야별 참여 현황</div>
+      <div class="bar-chart">
+        <div class="bar-row">
+          <span class="bar-lbl">IT · 개발</span>
+          <div class="bar-track"><div class="bar-fill" id="b1" style="width:0%;background:#1259c3"></div></div>
+          <span class="bar-val">82%</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-lbl">마케팅</span>
+          <div class="bar-track"><div class="bar-fill" id="b2" style="width:0%;background:#008b5e"></div></div>
+          <span class="bar-val">65%</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-lbl">디자인</span>
+          <div class="bar-track"><div class="bar-fill" id="b3" style="width:0%;background:#c47b00"></div></div>
+          <span class="bar-val">54%</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-lbl">창업 · 기획</span>
+          <div class="bar-track"><div class="bar-fill" id="b4" style="width:0%;background:#993C1D"></div></div>
+          <span class="bar-val">41%</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-lbl">기타</span>
+          <div class="bar-track"><div class="bar-fill" id="b5" style="width:0%;background:#888"></div></div>
+          <span class="bar-val">28%</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Donut-style -->
+    <div class="dash-card accent-blue">
+      <div class="chart-title" style="color:rgba(255,255,255,0.9)">수료 후 현황</div>
+      <div class="donut-wrap">
+        <svg width="120" height="120" viewBox="0 0 120 120">
+          <circle cx="60" cy="60" r="48" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="16"/>
+          <circle cx="60" cy="60" r="48" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="16"
+            stroke-dasharray="180 121" stroke-linecap="round" transform="rotate(-90 60 60)"/>
+          <circle cx="60" cy="60" r="48" fill="none" stroke="#4ade80" stroke-width="16"
+            stroke-dasharray="60 241" stroke-linecap="round" transform="rotate(57 60 60)"/>
+          <text x="60" y="55" text-anchor="middle" fill="#fff" font-size="18" font-weight="600" font-family="DM Sans">78%</text>
+          <text x="60" y="70" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="10" font-family="DM Sans">연계율</text>
+        </svg>
+        <div class="donut-labels">
+          <div class="donut-label-row">
+            <div class="donut-dot-label"><span class="donut-dot" style="background:rgba(255,255,255,0.9)"></span>취업</div>
+            <span class="donut-pct">60%</span>
+          </div>
+          <div class="donut-label-row">
+            <div class="donut-dot-label"><span class="donut-dot" style="background:#4ade80"></span>창업</div>
+            <span class="donut-pct">18%</span>
+          </div>
+          <div class="donut-label-row">
+            <div class="donut-dot-label"><span class="donut-dot" style="background:rgba(255,255,255,0.2)"></span>기타</div>
+            <span class="donut-pct">22%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="contact">
+  <div class="footer-top">
+    <div>
+      <div class="footer-brand">제주더큰내일센터</div>
+      <div class="footer-tagline">청년의 더 큰 내일을 함께 만듭니다</div>
+    </div>
+    <div class="footer-links">
+      <div class="footer-col">
+        <h4>센터</h4>
+        <a href="#">프로그램 소개</a>
+        <a href="#">공지사항</a>
+        <a href="#">수료생 이야기</a>
+      </div>
+      <div class="footer-col">
+        <h4>채용</h4>
+        <a href="#">채용 공고</a>
+        <a href="#">기업 파트너</a>
+        <a href="#">MOU 현황</a>
+      </div>
+      <div class="footer-col">
+        <h4>문의</h4>
+        <a href="#">hello@jejunext.kr</a>
+        <a href="#">064-000-0000</a>
+        <a href="#">오시는 길</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 제주더큰내일센터. All rights reserved.</span>
+    <span>제주특별자치도 제주시 · 수신거부 원하시면 회신해 주세요</span>
+  </div>
+</footer>
+
+<script>
+  // Animate bars on scroll
+  const bars = [
+    {id:'b1', w:82}, {id:'b2', w:65}, {id:'b3', w:54},
+    {id:'b4', w:41}, {id:'b5', w:28}
+  ];
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        bars.forEach(b => {
+          const el = document.getElementById(b.id);
+          if (el) el.style.width = b.w + '%';
+        });
+        obs.disconnect();
+      }
+    });
+  }, { threshold: 0.3 });
+  const dashEl = document.getElementById('dashboard');
+  if (dashEl) obs.observe(dashEl);
+
+  // Smooth scroll for nav
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); }
+    });
+  });
+
+  // Scroll reveal
+  const revealObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.news-card, .job-row, .dash-card, .stat-item').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    revealObs.observe(el);
+  });
+</script>
+</body>
+</html>
